@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBRAIN</title>
+    <title>Chat Interface</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1><span class="ib">IBR</span><span class="ain">AIN</span></h1>
+            <span class="ib">IBR</span><span class="ain">AIN</span>
         </div>
         <div id="chat-window" class="chat-window">
-            <div class="message bot-message"><span class="ib">IBR</span><span class="ain">AIN</span>: Hello, I'm <span class="ib">IBR</span><span class="ain">AIN</span>. How can I assist you today?</div>
+            <!-- Chat messages will be appended here -->
         </div>
         <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Type your message...">
+            <input id="user-input" type="text" placeholder="Type a message...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
