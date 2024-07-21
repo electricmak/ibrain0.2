@@ -1,4 +1,4 @@
-const userName = "MAKSON";
+const userName = "Makson";
 const botName = `<span class="ib">IBR</span><span class="ain">AIN</span>`;
 
 function sendMessage() {
@@ -32,18 +32,24 @@ function displayTypingEffect(message) {
     const chatWindow = document.getElementById("chat-window");
     const lastMessage = chatWindow.lastElementChild;
 
-    // Update the last "Thinking..." message to include the bot name
-    lastMessage.innerHTML = `<span class="ib">IBR</span><span class="ain">AIN</span>: <span class="typing-effect message-text"></span>`;
-    const typingElement = lastMessage.querySelector(".typing-effect");
-    
-    let i = 0;
-    const typingInterval = setInterval(() => {
-        typingElement.innerHTML += message.charAt(i);
-        i++;
-        if (i > message.length) {
-            clearInterval(typingInterval);
-        }
-    }, 50); // Adjust typing speed here (milliseconds)
+    // Check if the last message is the "Thinking..." message
+    if (lastMessage && lastMessage.classList.contains('bot-message') && lastMessage.textContent.includes("Thinking...")) {
+        lastMessage.innerHTML = `<span class="ib">IBR</span><span class="ain">AIN</span>: <span class="typing-effect message-text"></span>`;
+        const typingElement = lastMessage.querySelector(".typing-effect");
+        
+        let i = 0;
+        const typingInterval = setInterval(() => {
+            typingElement.innerHTML += message.charAt(i);
+            i++;
+            if (i > message.length) {
+                clearInterval(typingInterval);
+                // Remove the typing effect after completing
+                setTimeout(() => {
+                    lastMessage.innerHTML = `<span class="ib">IBR</span><span class="ain">AIN</span>: ${message}`;
+                }, 500); // Optional delay before showing final message
+            }
+        }, 30); // Adjust typing speed here (milliseconds)
+    }
 }
 
 function addMessage(sender, message, cssClass) {
