@@ -9,16 +9,17 @@ body {
 }
 
 .chat-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
+    height: 100%;
     margin: 0 auto;
     background-color: #1e1e1e; /* Slightly lighter dark background */
     border: 1px solid #333;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 .chat-header {
@@ -43,11 +44,18 @@ body {
     overflow-y: auto;
     border-bottom: 1px solid #333;
     word-wrap: break-word; /* Ensure long words break to fit */
+    white-space: normal; /* Allow text to wrap */
+    max-width: 100%; /* Ensure it takes up the full width of the container */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .chat-input {
     display: flex;
     border-top: 1px solid #333;
+    background-color: #1e1e1e; /* Same as chat window */
+    padding: 5px;
+    max-width: 100%; /* Ensure it takes up the full width of the container */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .chat-input input {
@@ -57,6 +65,8 @@ body {
     color: #ffffff; /* White text */
     border: none;
     border-bottom-left-radius: 10px;
+    margin-right: 5px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .chat-input input::placeholder {
@@ -70,6 +80,7 @@ body {
     border: none;
     cursor: pointer;
     border-bottom-right-radius: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .chat-input button:hover {
@@ -80,7 +91,7 @@ body {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-    max-width: 100%;
+    max-width: calc(100% - 20px); /* Ensure messages fit within the container */
     word-wrap: break-word; /* Ensure long words break to fit */
     white-space: normal; /* Allow text to wrap */
     overflow-wrap: break-word; /* Ensure long words break to fit */
@@ -121,5 +132,34 @@ body {
     border-right: 2px solid #ffffff; /* Cursor */
     animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
     max-width: calc(100% - 100px); /* Ensure it fits within the container */
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .chat-input {
+        flex-direction: column;
+    }
+    
+    .chat-input input {
+        margin-right: 0;
+        margin-bottom: 5px;
+        border-bottom-left-radius: 0;
+    }
+    
+    .chat-input button {
+        border-bottom-right-radius: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .chat-container {
+        width: 90%;
+        max-width: 800px; /* Adjust to your desired maximum width */
+    }
 }
