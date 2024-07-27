@@ -18,7 +18,7 @@ function sendMessage() {
     setTimeout(() => {
         const botResponse = getBotResponse(userMessage);
         displayTypingEffect(botResponse);
-    }, 5000); // Show "Thinking..." for 5 seconds
+    }, 3000); // Show "Thinking..." for 3 seconds
 }
 
 function getBotResponse(userMessage) {
