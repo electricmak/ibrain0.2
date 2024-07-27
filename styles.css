@@ -101,7 +101,7 @@ body {
 
 .user-message {
     background-color: #; /* Dark red background */
-    color: red; /* Red text */
+    color: white; /* Red text */
     align-self: flex-end;
 }
 
