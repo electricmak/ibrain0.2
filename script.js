@@ -1,4 +1,4 @@
-const userName = "Makson";
+const userName = `<span class="ib">MAK</span><span class="ain">SON</span>`;
 const botName = `<span class="ib">IBR</span><span class="ain">AIN</span>`;
 
 function sendMessage() {
