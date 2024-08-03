@@ -26,6 +26,10 @@ function getBotResponse(userMessage) {
         return `Today's date is: ${new Date().toLocaleDateString()}`;
     }
     return `You said: "${userMessage}"`;
+
+    if (userMessage.toLowerCase() === "help") {
+        return "Available command: /n date"
+    }
 }
 
 function displayTypingEffect(message) {
