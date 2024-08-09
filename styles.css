@@ -106,7 +106,7 @@ body {
 }
 
 .bot-message {
-    background-color: #003300; /* Dark green background */
+    background-color: 003300; /* Dark green background */
     color: #; /* Green text */
     align-self: flex-start;
 }
