@@ -84,7 +84,7 @@ body {
 }
 
 .chat-input button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: not set 45a049; /* Darker green on hover */
 }
 
 .message {
